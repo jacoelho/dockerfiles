@@ -1,0 +1,12 @@
+FROM debian:stable
+
+ENV DATA_PATH /var/lib/postgresql/data
+
+RUN groupadd -r postgres && \
+  useradd -r -g postgres postgres && \
+  mkdir -p $DATA_PATH && \
+  chown -R postgres:postgres $DATA_PATH
+
+VOLUME $DATA_PATH
+
+CMD ["echo", "data container"]

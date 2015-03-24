@@ -1,0 +1,16 @@
+FROM debian:stable
+
+ENV DATA_PATH /data/db
+ENV USER mongodb
+ENV UID 999
+ENV GROUP mongodb
+ENV GUID 999
+
+RUN groupadd -g $GUID -r $GROUP && \
+  useradd -u $UID -r -g $USER $GROUP && \
+  mkdir -p $DATA_PATH && \
+  chown -R $USER:$GROUP $DATA_PATH
+
+VOLUME $DATA_PATH
+
+CMD ["echo", "data container"]
