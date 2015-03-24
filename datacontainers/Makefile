@@ -7,16 +7,16 @@ TARGETS = gemdata systemdata mongodata postgresqldata
 all: $(TARGETS) 
 
 gemdata: GemDataContainer
-	$(CMD) -t jacoelho/$@ -f $< .
+	$(CMD) -t $(BASE)/$@ -f $< .
 
 systemdata: SystemDataContainer
-	$(CMD) -t jacoelho/$@ -f $< .
+	$(CMD) -t $(BASE)/$@ -f $< .
 
 mongodata: MongoDataContainer
-	$(CMD) -t jacoelho/$@ -f $< .
+	$(CMD) -t $(BASE)/$@ -f $< .
 
 postgresqldata: PostgresqlDataContainer
-	$(CMD) -t jacoelho/$@ -f $< .
+	$(CMD) -t $(BASE)/$@ -f $< .
 
 push: $(TARGETS)
 	@for IMAGE in $(TARGETS); do \
