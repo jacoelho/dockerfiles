@@ -1,15 +1,13 @@
 FROM debian:stable
 
-ENV DATA_PATH /var/www/service/current/public/system
-ENV USER rails
+ENV DATA_PATH /var/www/service/current/public/system 
 ENV UID 1000
-ENV GROUP rails
 ENV GUID 1000
 
-RUN groupadd -g $GUID -r $GROUP && \
-  useradd -u $UID -r -g $USER $GROUP && \
+RUN groupadd -g $GUID -r group && \
+  useradd -u $UID -r -g group user && \
   mkdir -p $DATA_PATH && \
-  chown -R $USER:$GROUP $DATA_PATH
+  chown -R user:group $DATA_PATH
 
 VOLUME $DATA_PATH
 
