@@ -1,0 +1,21 @@
+machine:
+  ruby:
+    version: 2.1.5
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - bundle install
+    - bundle exec rake docker:build[memcached]
+
+test:
+  override:
+    - bundle exec rake spec:memcached
+
+deployment:
+  production:
+    branch: master
+      commands:
+        - bundle exec rake docker:push[memcached]
