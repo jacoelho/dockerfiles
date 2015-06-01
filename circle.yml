@@ -17,5 +17,5 @@ test:
 deployment:
   production:
     branch: master
-      commands:
-        - bundle exec rake docker:push[memcached]
+    commands:
+      - bundle exec rake docker:push[memcached]
