@@ -25,10 +25,6 @@ describe "image memcached" do
     expect(@image.json["Config"]["Cmd"]).to include("/run.sh")
   end
 
-  describe selinux do
-    it { should be_disabled }
-  end
-
   describe package('memcached') do
     it { should be_installed }
   end

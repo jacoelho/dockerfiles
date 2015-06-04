@@ -12,10 +12,6 @@ describe "image elixir" do
     expect(@image).not_to be_nil
   end
 
-  describe selinux do
-    it { should be_disabled }
-  end
-
   describe package('erlang-base') do
     it { should be_installed }
   end
