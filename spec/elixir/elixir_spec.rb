@@ -36,4 +36,8 @@ describe "image elixir" do
     its(:stdout) { should match /Mix/ }
   end
 
+  describe package('nodejs') do
+    it { should be_installed }
+  end
+
 end
