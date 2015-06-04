@@ -10,10 +10,12 @@ dependencies:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
     - bundle install
     - bundle exec rake docker:build[memcached]
+    - bundle exec rake docker:build[elixir]
 
 test:
   override:
     - bundle exec rake spec:memcached
+    - bundle exec rake spec:elixir
 
 deployment:
   production:
